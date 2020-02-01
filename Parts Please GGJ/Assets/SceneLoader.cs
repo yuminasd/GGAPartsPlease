@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SceneLoader
+namespace PartsPlease
 {
-    public enum Scene
+    public enum Custom_Scene
     {
         MainMenu,
         MainGame,
@@ -14,8 +14,13 @@ public static class SceneLoader
         End_Lose
     }
 
-    public static void GoToScene(Scene newScene)
+    public static class SceneLoader
     {
-        SceneManager.LoadScene(newScene.ToString());
+       
+
+        public static void GoToScene(Custom_Scene newScene)
+        {
+            SceneManager.LoadScene(newScene.ToString());
+        }
     }
 }
