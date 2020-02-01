@@ -544,10 +544,10 @@ RectTransform:
   m_Children:
   - {fileID: 1443885178}
   - {fileID: 959445871}
+  - {fileID: 1213236700}
   - {fileID: 274646083}
   - {fileID: 413421911}
   - {fileID: 2052142702}
-  - {fileID: 1213236700}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -698,7 +698,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 176325350}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1001,7 +1001,7 @@ RectTransform:
   m_Children:
   - {fileID: 234507250}
   m_Father: {fileID: 176325350}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1326,6 +1326,7 @@ GameObject:
   - component: {fileID: 663655836}
   - component: {fileID: 663655835}
   - component: {fileID: 663655837}
+  - component: {fileID: 663655838}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1374,9 +1375,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentTime: 0
   Timer: 0
-  gameController: {fileID: 0}
+  gameState: {fileID: 0}
   OpenShopButton: {fileID: 2052142701}
   Anim_ShipDoor: {fileID: 959445874}
+--- !u!114 &663655838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663655834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be503edb0368b8b44a8d3643dd75272d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCustomer: {fileID: 1213236703}
 --- !u!1 &738710668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1633,7 @@ GameObject:
   - component: {fileID: 959445872}
   - component: {fileID: 959445874}
   - component: {fileID: 959445875}
+  - component: {fileID: 959445876}
   m_Layer: 5
   m_Name: Ship Door
   m_TagString: Untagged
@@ -1712,6 +1727,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb8559eeb65d9449af7da90f315bc7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &959445876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959445870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958ec9b53d6e23e44abd4e0221186f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 663655838}
 --- !u!1 &993723229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +1988,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1213236700}
   - component: {fileID: 1213236701}
+  - component: {fileID: 1213236703}
+  - component: {fileID: 1213236702}
   m_Layer: 5
   m_Name: CustomerWrapper
   m_TagString: Untagged
@@ -1980,11 +2010,11 @@ RectTransform:
   m_Children:
   - {fileID: 1489848493}
   m_Father: {fileID: 176325350}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1500, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213236701
@@ -1999,6 +2029,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6f574476f7ec04cb4f45fa01509be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1213236702}
+  gameState: {fileID: 663655838}
+--- !u!95 &1213236702
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213236699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2fde78b19057d6459e5a5336df88991, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1213236703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213236699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4cd9022c35c9742984a9d5327d45ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerState: 2
+  itemLocation: 1
 --- !u!1 &1254195634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,7 +2411,7 @@ RectTransform:
   m_Children:
   - {fileID: 1696689850}
   m_Father: {fileID: 176325350}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

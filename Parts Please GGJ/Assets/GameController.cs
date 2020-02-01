@@ -10,19 +10,11 @@ public class GameController : MonoBehaviour
     public bool Paused = false;
 
     Custom_Scene CurrentScene;
-    GameState gameState;
-
-    public GameState getGameState()
-    {
-        return this.gameState;
-    }
-    
 
     private void Awake()
     {        
         DontDestroyOnLoad(this.gameObject);
         this.CurrentScene = Custom_Scene.MainGame;
-        this.gameState = new GameState();
     }
 
     void Start()

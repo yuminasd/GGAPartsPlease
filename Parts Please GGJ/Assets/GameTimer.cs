@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PartsPlease;
 
 public class GameTimer : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameTimer : MonoBehaviour
     private float Timer;
     private bool KeepTime;
 
-    public GameController gameController;
+    public GameState gameState;
     public GameObject OpenShopButton;
     public Animator Anim_ShipDoor;
 
@@ -38,7 +39,7 @@ public class GameTimer : MonoBehaviour
         }
         if(this.CurrentTime >= this.EndTime && !this.KeepTime)
         {
-            if (gameController.getGameState().currentCustomer.LastCustomer && gameController.getGameState().currentCustomer.HasExited)
+            if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
             {
                 this.CloseShop();
             }
@@ -59,7 +60,7 @@ public class GameTimer : MonoBehaviour
     public void StopTimer()
     {
         this.KeepTime = false;
-        this.gameController.getGameState().currentCustomer.setLastCustomer(true);
+        gameState.currentCustomer.setLastCustomer(true);
     }
 
     public void HideOpenShopButton()
@@ -76,4 +77,5 @@ public class GameTimer : MonoBehaviour
     {
         Anim_ShipDoor.SetTrigger("Trig_CloseShop");
     }
+
 }

@@ -6,7 +6,7 @@ namespace PartsPlease
 {
 
 
-    public class GameState
+    public class GameState : MonoBehaviour
     {
         int ThreatLevel = 0;
         
@@ -21,9 +21,8 @@ namespace PartsPlease
 
         public void reset()
         {
-            player = new Player();
-            currentCustomer = new Customer();
-            currentItem = new Item();
+            //player = new Player();
+            //currentItem = new Item();
         }
     }
 }
