@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     Scene CurrentScene;
     public bool Paused = false;
 
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
