@@ -2,27 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using PartsPlease;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update    
-    enum Scene
-    {
-        MainMenu,
-        MainGame,
-        Shop,
-        End_Win,
-        End_Lose
-    }
 
-    Scene CurrentScene;
     public bool Paused = false;
+
+    Custom_Scene CurrentScene;
+    GameState gameState;
 
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        this.CurrentScene = Scene.MainMenu;
+        this.CurrentScene = Custom_Scene.MainMenu;
+        this.gameState = new GameState();
     }
 
     void Start()
@@ -49,23 +44,23 @@ public class GameController : MonoBehaviour
 
     private void ManageSceneControl()
     {
-        if (this.CurrentScene == Scene.MainMenu)
+        if (this.CurrentScene == Custom_Scene.MainMenu)
         {
             if (!Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Mouse1))
                 if (Input.anyKeyDown)
                 {
-                    this.CurrentScene = Scene.MainGame;
-                    SceneLoader.GoToScene(SceneLoader.Scene.MainGame);
+                    this.CurrentScene = Custom_Scene.MainGame;
+                    SceneLoader.GoToScene(Custom_Scene.MainGame);
                 }
         }
-        else if (this.CurrentScene == Scene.MainGame)
+        else if (this.CurrentScene == Custom_Scene.MainGame)
         {
         }
     }
 
     public void TogglePaused()
     {       
-        if(this.CurrentScene.Equals(Scene.MainMenu))
+        if(this.CurrentScene.Equals(Custom_Scene.MainMenu))
         {
             return;
         }
