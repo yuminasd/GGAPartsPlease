@@ -13,6 +13,7 @@ public class GameTimer : MonoBehaviour
     private bool KeepTime;
 
     public GameObject OpenShopButton;
+    public Animator Anim_ShipDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,13 @@ public class GameTimer : MonoBehaviour
         if(this.Timer >= this.EndTime)
         {
             this.StopTimer();
+        }
+        if(this.CurrentTime >= this.EndTime && !this.KeepTime)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                this.CloseShop();
+            }
         }
     }
 
@@ -55,5 +63,15 @@ public class GameTimer : MonoBehaviour
     public void HideOpenShopButton()
     {
         OpenShopButton.SetActive(false);
+    }
+
+    public void OpenShop()
+    {
+        Anim_ShipDoor.SetTrigger("Trig_OpenShop");
+    }
+
+    public void CloseShop()
+    {
+        Anim_ShipDoor.SetTrigger("Trig_CloseShop");
     }
 }

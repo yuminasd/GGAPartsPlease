@@ -1155,6 +1155,7 @@ MonoBehaviour:
   CurrentTime: 0
   Timer: 0
   OpenShopButton: {fileID: 2052142701}
+  Anim_ShipDoor: {fileID: 959445874}
 --- !u!1 &921240575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1325,7 @@ GameObject:
   - component: {fileID: 959445873}
   - component: {fileID: 959445872}
   - component: {fileID: 959445874}
+  - component: {fileID: 959445875}
   m_Layer: 5
   m_Name: Ship Door
   m_TagString: Untagged
@@ -1396,7 +1398,7 @@ Animator:
   m_GameObject: {fileID: 959445870}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0b0ba52fe580584ea90b2688070e62e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3e018db4d3b6da74eb2c1a716acd4cbb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1405,6 +1407,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &959445875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959445870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb8559eeb65d9449af7da90f315bc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 663655835}
 --- !u!1 &993723229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1827,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 663655837}
         m_MethodName: HideOpenShopButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 663655837}
+        m_MethodName: OpenShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

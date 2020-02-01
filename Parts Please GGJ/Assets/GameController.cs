@@ -11,12 +11,12 @@ public class GameController : MonoBehaviour
 
     Custom_Scene CurrentScene;
     GameState gameState;
-
+    
 
     private void Awake()
-    {
+    {        
         DontDestroyOnLoad(this.gameObject);
-        this.CurrentScene = Custom_Scene.MainMenu;
+        this.CurrentScene = Custom_Scene.MainGame;
         this.gameState = new GameState();
     }
 
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !this.Paused)
         {
             this.TogglePaused();
-        }
+        }        
 
     }
 
@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
             if (!Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Mouse1))
                 if (Input.anyKeyDown)
                 {
+                    Debug.Log("THIS shouldn't be called");
                     this.CurrentScene = Custom_Scene.MainGame;
                     SceneLoader.GoToScene(Custom_Scene.MainGame);
                 }
@@ -67,5 +68,10 @@ public class GameController : MonoBehaviour
 
         this.Paused = !this.Paused;
         Debug.Log("PAUSED: " + this.Paused);
+    }
+
+    public void GoToShopScene()
+    {
+        SceneLoader.GoToScene(Custom_Scene.Shop);
     }
 }
