@@ -11,6 +11,11 @@ public class GameController : MonoBehaviour
 
     Custom_Scene CurrentScene;
     GameState gameState;
+
+    public GameState getGameState()
+    {
+        return this.gameState;
+    }
     
 
     private void Awake()
@@ -49,7 +54,6 @@ public class GameController : MonoBehaviour
             if (!Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Mouse1))
                 if (Input.anyKeyDown)
                 {
-                    Debug.Log("THIS shouldn't be called");
                     this.CurrentScene = Custom_Scene.MainGame;
                     SceneLoader.GoToScene(Custom_Scene.MainGame);
                 }

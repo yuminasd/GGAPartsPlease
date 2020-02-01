@@ -12,6 +12,7 @@ public class GameTimer : MonoBehaviour
     private float Timer;
     private bool KeepTime;
 
+    public GameController gameController;
     public GameObject OpenShopButton;
     public Animator Anim_ShipDoor;
 
@@ -37,7 +38,7 @@ public class GameTimer : MonoBehaviour
         }
         if(this.CurrentTime >= this.EndTime && !this.KeepTime)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (gameController.getGameState().currentCustomer.LastCustomer && gameController.getGameState().currentCustomer.HasExited)
             {
                 this.CloseShop();
             }
@@ -58,6 +59,7 @@ public class GameTimer : MonoBehaviour
     public void StopTimer()
     {
         this.KeepTime = false;
+        this.gameController.getGameState().currentCustomer.setLastCustomer(true);
     }
 
     public void HideOpenShopButton()

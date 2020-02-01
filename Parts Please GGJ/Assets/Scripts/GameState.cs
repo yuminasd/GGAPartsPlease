@@ -8,9 +8,10 @@ namespace PartsPlease
 
     public class GameState
     {
-        World world;
+        int ThreatLevel = 0;
+        
         Player player;
-        Customer currentCustomer;
+        public Customer currentCustomer;
         Item currentItem;
 
         public GameState()
@@ -20,7 +21,6 @@ namespace PartsPlease
 
         public void reset()
         {
-            world = new World();
             player = new Player();
             currentCustomer = new Customer();
             currentItem = new Item();
