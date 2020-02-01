@@ -69,9 +69,4 @@ public class GameController : MonoBehaviour
         this.Paused = !this.Paused;
         Debug.Log("PAUSED: " + this.Paused);
     }
-
-    public void GoToShopScene()
-    {
-        SceneLoader.GoToScene(Custom_Scene.Shop);
-    }
 }

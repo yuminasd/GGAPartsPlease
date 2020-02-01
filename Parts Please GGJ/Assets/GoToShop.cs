@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PartsPlease;
 
 public class GoToShop : MonoBehaviour
 {
-    public GameController gc;
     public void Shop()
     {
-        gc.GoToShopScene();
+        SceneLoader.GoToScene(Custom_Scene.Shop);
     }
 }
