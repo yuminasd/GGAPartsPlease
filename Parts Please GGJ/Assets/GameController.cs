@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     }
 
     Scene CurrentScene;
+    public bool Paused = false;
+
 
     private void Awake()
     {
@@ -32,7 +34,11 @@ public class GameController : MonoBehaviour
     void Update()
     {
         this.ManageSceneControl();
-  
+        if (Input.GetKeyDown(KeyCode.Escape) && !this.Paused)
+        {
+            this.TogglePaused();
+        }
+
     }
 
     public void QuitGame()
@@ -54,11 +60,17 @@ public class GameController : MonoBehaviour
         }
         else if (this.CurrentScene == Scene.MainGame)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Debug.Log("Open Pause Menu");
-                throw new MissingComponentException("Pause Menu Not Implemented Yet");
-            }
         }
+    }
+
+    public void TogglePaused()
+    {       
+        if(this.CurrentScene.Equals(Scene.MainMenu))
+        {
+            return;
+        }
+
+        this.Paused = !this.Paused;
+        Debug.Log("PAUSED: " + this.Paused);
     }
 }
