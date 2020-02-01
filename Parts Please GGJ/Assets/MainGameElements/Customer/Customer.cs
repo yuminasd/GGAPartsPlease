@@ -21,7 +21,8 @@ namespace PartsPlease
     {
         Entering,
         Exiting, 
-        Exited, 
+        Exited,
+        Farewell,
         Talking,
         WaitingForRepair
     }
