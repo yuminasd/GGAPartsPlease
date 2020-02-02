@@ -9,7 +9,6 @@ namespace PartsPlease
     {
         MainMenu,
         MainGame,
-        Shop,
         End_Win,
         End_Lose
     }

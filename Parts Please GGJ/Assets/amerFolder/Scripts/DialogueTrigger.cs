@@ -11,10 +11,10 @@ public class DialogueTrigger : MonoBehaviour
     {
 
 
-
+        dialogue.setWeaponName(customer.assignWeaponName());
         dialogue.politicalDialogue(customer.faction, customer.hostility);
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    
+
 
 
     }

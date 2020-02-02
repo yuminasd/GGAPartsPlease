@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: 
-    itemName: gunPlaceHolder
+    itemName: 
     sentences: []
     politicalDialgue:
     - 
@@ -3322,7 +3322,7 @@ MonoBehaviour:
   customerState: 2
   itemLocation: 1
   gunType: 0
-  catalog: {fileID: 0}
+  catalog: {fileID: 663655839}
   clothing: {fileID: 101660228}
 --- !u!114 &1213236704
 MonoBehaviour:
@@ -3356,7 +3356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: 
-    itemName: gunPlaceHolder
+    itemName: 
     sentences: []
     politicalDialgue:
     - 

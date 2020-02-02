@@ -9,14 +9,17 @@ public class GameTimer : MonoBehaviour
     [SerializeField]
     private int CurrentTime;
     private int StartTime = 0;
-    private int EndTime = 180;
+    private int EndTime = 1;
     [SerializeField]
     private float Timer;
     private bool KeepTime;
+    private bool ShopHasClosed = false;
 
     public GameState gameState;
     public GameObject OpenShopButton;
     public Animator Anim_ShipDoor;
+    public MoneyController mc;
+
 
     public SpriteRenderer sr;
     public Sprite[] sprites = new Sprite[6];
@@ -25,18 +28,18 @@ public class GameTimer : MonoBehaviour
     private float switchTimer;
 
 
-   
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("starting timer");
+
 
         this.KeepTime = false;
         this.CurrentTime = 0;
         this.Timer = 0;
-    
+
         this.imageIndex = 0;
         this.switchTimer = 0;
         this.switchTime = EndTime / 6;
@@ -45,7 +48,7 @@ public class GameTimer : MonoBehaviour
 
         sr.sprite = sprites[0];
 
-      
+
     }
 
     // Update is called once per frame
@@ -58,17 +61,20 @@ public class GameTimer : MonoBehaviour
             this.Timer += Time.deltaTime;
             this.switchTimer += Time.deltaTime;
             this.CurrentTime = Mathf.FloorToInt(this.Timer);
-            Debug.Log("time is going" + switchTimer + "is compared to: " + switchTime);
+
         }
-        if(this.Timer >= this.EndTime)
+        if (this.Timer >= this.EndTime)
         {
             this.StopTimer();
         }
-        if(this.CurrentTime >= this.EndTime && !this.KeepTime)
+        if (this.CurrentTime >= this.EndTime && !this.KeepTime)
         {
             if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
             {
-                this.CloseShop();
+                if (!this.ShopHasClosed)
+                {
+                    this.CloseShop();
+                }
             }
         }
     }
@@ -78,17 +84,20 @@ public class GameTimer : MonoBehaviour
         this.CurrentTime = 0;
         this.Timer = 0;
         this.switchTimer = 0;
+        
     }
 
     public void StartTimer()
     {
         this.KeepTime = true;
+        this.ShopHasClosed = false;
     }
 
     public void StopTimer()
     {
         this.KeepTime = false;
         gameState.currentCustomer.setLastCustomer(true);
+ 
     }
 
     public void HideOpenShopButton()
@@ -99,31 +108,36 @@ public class GameTimer : MonoBehaviour
     public void OpenShop()
     {
         Anim_ShipDoor.SetTrigger("Trig_OpenShop");
+  
     }
 
     public void CloseShop()
     {
+        this.ShopHasClosed = true;
         Anim_ShipDoor.SetTrigger("Trig_CloseShop");
+        mc.openShop = false;
     }
-    public void closeImages ()
+    public void closeImages()
     {
+        if (imageIndex > 5)
+        {
+            imageIndex = 0;
+        }
+
         sr.sprite = sprites[imageIndex];
 
     }
-    private void switchBackGroundImages ()
+    private void switchBackGroundImages()
     {
-       
+
         if (switchTimer >= switchTime)
         {
             Debug.Log("Time switch");
             switchTimer = 0;
             imageIndex++;
             closeImages();
-            
-            if (imageIndex >= 6)
-            {
-                imageIndex = 0;
-            }
+
+
         }
 
     }

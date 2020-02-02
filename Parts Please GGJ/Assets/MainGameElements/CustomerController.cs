@@ -70,7 +70,7 @@ public class CustomerController : MonoBehaviour
     {
         anim_dialogue.SetBool("isOpen", true);
         anim_character.SetTrigger("Talking");
-    
+        gameState.ToggleWarMeter(false);
         gameState.currentCustomer.setCustomerState(CustomerState.Talking);
     }
 

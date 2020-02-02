@@ -12,14 +12,24 @@ public class GameController : MonoBehaviour
     public int MaxWarMeter = 10;
     public int turnNumber;
     public int Difficulty;
+    public int money;
+    public GameObject shop;
+    public MoneyController mc;
+
     GameState gameState;
     Custom_Scene CurrentScene;
 
     private void Awake()
     {        
+
+
+
+
+
         DontDestroyOnLoad(this.gameObject);
         this.CurrentScene = Custom_Scene.MainGame;
         this.gameState = this.GetComponent<GameState>();
+        
     }
 
     void Start()
@@ -27,6 +37,9 @@ public class GameController : MonoBehaviour
         this.WarMeter = 0;
         this.turnNumber = 0;
         this.Difficulty = 0;
+   
+        
+
     }
 
     // Update is called once per frame
@@ -41,8 +54,8 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !this.Paused)
         {
             this.TogglePaused();
-        }        
-
+        }
+        
     }
 
     public void QuitGame()
@@ -64,22 +77,35 @@ public class GameController : MonoBehaviour
         }
         else if (this.CurrentScene == Custom_Scene.MainGame)
         {
-            if(gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exiting)
+            if (!mc.openShop)
             {
-                // Disable buttons.
-                gameState.disableButtons();
-                
-            } else if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
-            {
-                if(this.WarMeter >= 10)
+                if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exiting)
                 {
-                    SceneLoader.GoToScene(Custom_Scene.End_Lose);
+                    // Disable buttons.
+                    gameState.disableButtons();
+
+
                 }
-                else
+                else if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
                 {
-                    SceneLoader.GoToScene(Custom_Scene.Shop);
-                }                
+
+
+                    Debug.Log("can shop: " + mc.openShop);
+
+                    if (this.WarMeter >= 10)
+                    {
+                        SceneLoader.GoToScene(Custom_Scene.End_Lose);
+                    }
+                    else if (!mc.openShop)
+                    {
+
+                        shop.gameObject.SetActive(true);
+                        mc.openShop = true;
+                    }
+                }
             }
+          
+           
         }
     }
 
@@ -97,6 +123,7 @@ public class GameController : MonoBehaviour
         {
             this.WarMeter = 0;
         }
+        gameState.ToggleWarMeter(true);
     }
 
 

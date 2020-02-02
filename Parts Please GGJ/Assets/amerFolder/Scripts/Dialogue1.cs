@@ -9,14 +9,19 @@ public class Dialogue
 
 
     public string name;
-    public string itemName = "gunPlaceHolder";
+    public string itemName;
     public string[] sentences;
     string[] greetings = new string[3];
     string[] requests = new string[3];
     public string[] politicalDialgue = new string[3];
 
 
+    public void setWeaponName (string weaponName)
+    {
+        Debug.Log("calling weapon name" + weaponName);
 
+        itemName = weaponName;
+    }
 
 
 
@@ -24,13 +29,12 @@ public class Dialogue
     {
 
         name = "goerge";
-        itemName = "gunPlaceHolder";
         greetings[0] = "Hello there";
         greetings[1] = "Greetings";
-        greetings[2] = "Listen up";
+        greetings[2] = "Hi";
         requests[0] = "I need you to fix my  " + itemName;
         requests[1] = "Please fix my " + itemName + "It is very urgent";
-        requests[2] = "It is of ut most importance for you to fix my" + itemName;
+        requests[2] = "It is of ut most importance that you to fix my" + itemName;
         sentences = new string[3];
 
 
@@ -63,17 +67,17 @@ public class Dialogue
 
             if (faction.Equals(Faction.Opfor))
             {
-                politicalDialgue[0] = "political dialogue 1 red, de";
-                politicalDialgue[1] = "political dialogue 2 red, de";
-                politicalDialgue[2] = "political dialogue 3 red, de";
+                politicalDialgue[0] = "nice day outisde, hopfully the blufor keep it that way";
+                politicalDialgue[1] = "things seem a little shakey with the Blufor but today is fine";
+                politicalDialgue[2] = "Boy am i glade things arent as tense as they were";
 
 
 
             }
             else if (faction.Equals(Faction.Blufor))
             {
-                politicalDialgue[0] = "political dialogue 1 blue, de";
-                politicalDialgue[1] = "political dialogue 2 blue, de";
+                politicalDialgue[0] = "finally some good weather, lets hope the Opfor doesnt wreck it";
+                politicalDialgue[1] = "political di";
                 politicalDialgue[2] = "political dialogue 3 blue, de";
             }
 
@@ -104,9 +108,9 @@ public class Dialogue
         if (hostilitiy.Equals(Hostility.Neutral))
         {
 
-            politicalDialgue[0] = "neutral 1";
-            politicalDialgue[1] = "neutral 2";
-            politicalDialgue[2] = "neutral 3";
+            politicalDialgue[0] = "How do you do?";
+            politicalDialgue[1] = "just the person im looking for";
+            politicalDialgue[2] = "today is your lucky day";
 
 
         }

@@ -11,12 +11,18 @@ public class GetBaseWeaponSkin : MonoBehaviour
 
     
     public void SetWeaponSkin(GunType type)
-    {        
-        foreach(GameObject cur in WeaponBaseSkins)
+    {
+
+
+      
+
+        foreach (GameObject cur in WeaponBaseSkins)
         {
             cur.SetActive(false);
         }
+    
         int index = catalog.getWeaponIndex(type);
+
         Debug.Log("WEAPON: " + index);
         WeaponBaseSkins[index].SetActive(true);
     }

@@ -34,8 +34,8 @@ namespace PartsPlease
 
         private const int OPFOR = 30;
         private const int BLUFOR = 60;
-        private const int ESCAL = 30;
-        private const int DESCAL = 60;
+        private const int ESCAL = 40;
+        private const int DESCAL = 70;
 
         public Faction faction { get; set; }
         public Hostility hostility { get; set; }
@@ -47,7 +47,8 @@ namespace PartsPlease
         public ItemLocation itemLocation;
         public GunType gunType;
         public CatalogNumbers catalog;
-        public Image clothing; 
+        public Image clothing;
+      
 
         public void Awake()
         {
@@ -65,8 +66,11 @@ namespace PartsPlease
             this.hostility = GenerateHostility();
             this.setClothingColor(this.faction);
             this.gunType = catalog.chooseRandomGunType();
+
+
          
         }
+
 
         private Faction GenerateFaction()
         {
@@ -114,6 +118,17 @@ namespace PartsPlease
         public void setItemLocation(ItemLocation location)
         {
             this.itemLocation = location;
+        }
+
+        public string assignWeaponName ()
+        {
+
+            if (gunType == GunType.BABYGUN) return "BabyGun";
+            if (gunType == GunType.GUNGUN) return "GunGun";
+            if (gunType == GunType.WATERGUN) return "WaterGun";
+            else return "Yoda Gun";
+
+            
         }
 
 

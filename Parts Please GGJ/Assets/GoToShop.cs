@@ -5,8 +5,5 @@ using PartsPlease;
 
 public class GoToShop : MonoBehaviour
 {
-    public void Shop()
-    {
-        SceneLoader.GoToScene(Custom_Scene.Shop);
-    }
+
 }

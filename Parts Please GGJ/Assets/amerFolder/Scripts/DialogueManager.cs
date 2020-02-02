@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
 
+     
         continueButton.gameObject.SetActive(true);
         nameText.text =  dialogue.name;
         clickCount = 0;
