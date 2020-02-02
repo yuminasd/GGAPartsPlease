@@ -8,13 +8,14 @@ public class GameController : MonoBehaviour
 {
 
     public bool Paused = false;
-
+    GameState gameState;
     Custom_Scene CurrentScene;
 
     private void Awake()
     {        
         DontDestroyOnLoad(this.gameObject);
         this.CurrentScene = Custom_Scene.MainGame;
+        this.gameState = this.GetComponent<GameState>();
     }
 
     void Start()
@@ -52,6 +53,15 @@ public class GameController : MonoBehaviour
         }
         else if (this.CurrentScene == Custom_Scene.MainGame)
         {
+            if(gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exiting)
+            {
+                // Disable buttons.
+                gameState.disableButtons();
+                
+            } else if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
+            {
+                SceneLoader.GoToScene(Custom_Scene.Shop);
+            }
         }
     }
 

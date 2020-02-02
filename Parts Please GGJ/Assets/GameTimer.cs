@@ -8,7 +8,7 @@ public class GameTimer : MonoBehaviour
     [SerializeField]
     private int CurrentTime;
     private int StartTime = 0;
-    private int EndTime = 600;
+    private int EndTime = 180;
     [SerializeField]
     private float Timer;
     private bool KeepTime;

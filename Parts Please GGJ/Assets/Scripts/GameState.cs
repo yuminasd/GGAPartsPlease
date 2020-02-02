@@ -9,7 +9,7 @@ namespace PartsPlease
     public class GameState : MonoBehaviour
     {
         int ThreatLevel = 0;
-        
+        bool ButtonsDisabled = false;
         Player player;
         public Customer currentCustomer;
         Item currentItem;
@@ -23,6 +23,11 @@ namespace PartsPlease
         {
             //player = new Player();
             //currentItem = new Item();
+        }
+
+        public void disableButtons()
+        {
+            this.ButtonsDisabled = true;
         }
     }
 }
