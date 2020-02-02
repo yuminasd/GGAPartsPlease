@@ -7,6 +7,7 @@ public class CustomerController : MonoBehaviour
 {
     public Animator anim_character;
     public Animator anim_weapon;
+    public Animator anim_dialogue;
     public GameState gameState;
    
     // Start is called before the first frame update
@@ -67,7 +68,9 @@ public class CustomerController : MonoBehaviour
 
     public void SetCustomerDialogue()
     {
+        anim_dialogue.SetBool("isOpen", true);
         anim_character.SetTrigger("Talking");
+    
         gameState.currentCustomer.setCustomerState(CustomerState.Talking);
     }
 

@@ -11,10 +11,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public List<string> QueSentences;
-    public Animator animator;
     public TextMeshProUGUI continueText;
     private int clickCount;
-
+    public Animator anim;
+    public Button continueButton;
 
     public int i;
 
@@ -22,8 +22,7 @@ public class DialogueManager : MonoBehaviour
     {
         
         QueSentences.Capacity = 3;
-        i = 0;
-        clickCount = 0;
+   
     }
 
    
@@ -31,53 +30,65 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
 
+        continueButton.gameObject.SetActive(true);
         nameText.text =  dialogue.name;
+        clickCount = 0;
+        dialogueText.text = "";
+        i = 0;
+        continueText.text = "continue";
+        QueSentences.Clear();
+        
 
-
-        foreach(string sentence in dialogue.randomizeSentence())
+        foreach (string sentence in dialogue.randomizeSentence())
         {
             Debug.Log(dialogue.randomizeSentence());
             QueSentences.Add(sentence);
 
         }
-
-        DisplayNextSentence();
+        
+            DisplayNextSentence();
+        
+        
     }
 
     public void DisplayNextSentence()
     {
-  
 
-        if (QueSentences.Count == 0)
-        {
+       
+
+            if (QueSentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            dialogueText.text = QueSentences[i];
+
+
+            if (i + 1 != QueSentences.Count)
+            {
+                i++;
+            }
+            else
+            {
+
+                continueText.text = "finish";
+
+            }
+            clickCount++;
             EndDialogue();
-            return;
-        }
         
-        dialogueText.text = QueSentences[i];
-        
-
-        if (i + 1 != QueSentences.Count)
-        {
-            i++;
-        }
-        else
-        {
-
-            continueText.text = "finish";
-     
-        }
-        clickCount++;
-
     }
 
 
    public void EndDialogue()
     { 
         if (clickCount == 4)
-        {
+        { 
+            
             Debug.Log("End of Converstaion");
-            animator.SetBool("isOpen", false);
+            anim.SetBool("isOpen", false);
+            continueButton.gameObject.SetActive(false);
         }
     
 

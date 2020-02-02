@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PartsPlease
 {
     
-
     public enum Hostility
     {
         Neutral,
@@ -47,6 +47,7 @@ namespace PartsPlease
         public ItemLocation itemLocation;
         public GunType gunType;
         public CatalogNumbers catalog;
+        public Image clothing; 
 
         public void Awake()
         {
@@ -56,12 +57,15 @@ namespace PartsPlease
 
         public void GetNewCustomer()
         {
+            Debug.Log("creating new customer");
             this.LastCustomer = false;
             this.customerState = CustomerState.Exited;
             this.itemLocation = ItemLocation.Customer;
             this.faction = GenerateFaction();
             this.hostility = GenerateHostility();
+            this.setClothingColor(this.faction);
             this.gunType = catalog.chooseRandomGunType();
+         
         }
 
         private Faction GenerateFaction()
@@ -110,6 +114,21 @@ namespace PartsPlease
         public void setItemLocation(ItemLocation location)
         {
             this.itemLocation = location;
+        }
+
+
+        public void setClothingColor (Faction faction) {
+            Debug.Log("changing color of clothing to color of faction: " + faction);
+            if (this.faction == Faction.Blufor)
+            {
+                clothing.color = Color.blue;
+            }
+            else if (this.faction == Faction.Opfor)
+            {
+                clothing.color = Color.red;
+            }
+            else clothing.color = Color.white;
+                
         }
     }
 }
