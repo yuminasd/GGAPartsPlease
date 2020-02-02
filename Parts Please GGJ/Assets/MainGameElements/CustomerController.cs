@@ -10,7 +10,9 @@ public class CustomerController : MonoBehaviour
     public GameState gameState;
     public WeaponController weaponController;
     bool hasNewGun = false;
-   
+    // New
+    public Animator anim_dialogue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,8 @@ public class CustomerController : MonoBehaviour
         }
         // After talking, dialogue should set CustomerState = CustomerState.WaitingForRepair
         // FORCED: Item is on the bench, they wait for the repair        
-        if(gameState.currentCustomer.customerState == CustomerState.Talking && Input.GetKeyDown(KeyCode.Space))
+        //if (gameState.currentCustomer.customerState == CustomerState.Talking && Input.GetKeyDown(KeyCode.Space))
+        if (gameState.currentCustomer.customerState == CustomerState.Talking)
         {
             Debug.Log("STATE: Talking -> Waiting For Repair");
             anim_weapon.SetTrigger("DropWeapon");
@@ -83,7 +86,9 @@ public class CustomerController : MonoBehaviour
 
     public void SetCustomerDialogue()
     {
+        anim_dialogue.SetBool("isOpen", true);
         anim_character.SetTrigger("Talking");
+        gameState.ToggleWarMeter(false);
         gameState.currentCustomer.setCustomerState(CustomerState.Talking);
     }
 

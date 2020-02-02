@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PartsPlease
 {
@@ -33,8 +34,8 @@ namespace PartsPlease
 
         private const int OPFOR = 30;
         private const int BLUFOR = 60;
-        private const int ESCAL = 30;
-        private const int DESCAL = 60;
+        private const int ESCAL = 20;
+        private const int DESCAL = 70;
 
         public Faction faction { get; set; }
         public Hostility hostility { get; set; }
@@ -45,8 +46,11 @@ namespace PartsPlease
         public CustomerState customerState;
         public ItemLocation itemLocation;
         //public GunType gunType;
+        public Image clothing;
         public CatalogNumbers catalog;
         //public PartType[] DesiredParts = new PartType[4];
+
+        public WeaponController weaponController;
 
         public void Awake()
         {
@@ -61,6 +65,7 @@ namespace PartsPlease
             this.itemLocation = ItemLocation.Customer;
             this.faction = GenerateFaction();
             this.hostility = GenerateHostility();
+            this.setClothingColor(this.faction);
             //this.gunType = catalog.chooseRandomGunType();
             //this.populateWeaponPartsArray();
         }
@@ -129,6 +134,30 @@ namespace PartsPlease
         public void setItemLocation(ItemLocation location)
         {
             this.itemLocation = location;
+        }
+
+        public string assignWeaponName()
+        {
+           
+            if (weaponController.gunType == GunType.BABYGUN) return "BabyGun";
+            if (weaponController.gunType == GunType.GUNGUN) return "GunGun";
+            if (weaponController.gunType == GunType.WATERGUN) return "WaterGun";
+            return "Yoda Gun";
+
+        }
+        public void setClothingColor(Faction faction)
+        {
+            Debug.Log("changing color of clothing to color of faction: " + faction);
+            if (this.faction == Faction.Blufor)
+            {
+                clothing.color = Color.blue;
+            }
+            else if (this.faction == Faction.Opfor)
+            {
+                clothing.color = Color.red;
+            }
+            else clothing.color = Color.white;
+
         }
     }
 }

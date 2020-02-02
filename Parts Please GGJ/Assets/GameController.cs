@@ -16,8 +16,13 @@ public class GameController : MonoBehaviour
     GameState gameState;
     Custom_Scene CurrentScene;
 
+    // NEW 
+    public int money;
+    public GameObject shop;
+    public MoneyController mc;
+
     private void Awake()
-    {        
+    {
         DontDestroyOnLoad(this.gameObject);
         this.CurrentScene = Custom_Scene.MainGame;
         this.gameState = this.GetComponent<GameState>();
@@ -42,7 +47,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !this.Paused)
         {
             this.TogglePaused();
-        }        
+        }
 
     }
 
@@ -54,35 +59,52 @@ public class GameController : MonoBehaviour
 
     private void ManageSceneControl()
     {
-        if (this.CurrentScene == Custom_Scene.MainMenu)
+        if (!mc.openShop)
         {
-            if (!Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Mouse1))
-                if (Input.anyKeyDown)
-                {
-                    this.CurrentScene = Custom_Scene.MainGame;
-                    SceneLoader.GoToScene(Custom_Scene.MainGame);
-                }
-        }
-        else if (this.CurrentScene == Custom_Scene.MainGame)
-        {
-            if(gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exiting)
+            if (this.CurrentScene == Custom_Scene.MainMenu)
             {
-                // Disable buttons.
-                gameState.disableButtons();
-                
-            } else if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
+                if (!Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Mouse1))
+                    if (Input.anyKeyDown)
+                    {
+                        this.CurrentScene = Custom_Scene.MainGame;
+                        SceneLoader.GoToScene(Custom_Scene.MainGame);
+                    }
+            }
+            else if (this.CurrentScene == Custom_Scene.MainGame)
             {
-                if(this.WarMeter >= 10)
+                if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exiting)
                 {
-                    SceneLoader.GoToScene(Custom_Scene.End_Lose);
+                    // Disable buttons.
+                    gameState.disableButtons();
+
                 }
-                else
+                else if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
                 {
-                    SceneLoader.GoToScene(Custom_Scene.Shop);
-                }                
+                    if (this.WarMeter >= 10)
+                    {
+                        SceneLoader.GoToScene(Custom_Scene.End_Lose);
+                    }
+                    else
+                    {
+                        Debug.Log("can shop: " + mc.openShop);
+
+                        if (this.WarMeter >= 10)
+                        {
+                            SceneLoader.GoToScene(Custom_Scene.End_Lose);
+                        }
+                        else if (!mc.openShop)
+                        {
+
+                            shop.gameObject.SetActive(true);
+                            mc.openShop = true;
+                        }
+                    }
+                }
             }
         }
     }
+
+
 
     private void AdjustWarMeter()
     {
@@ -98,12 +120,14 @@ public class GameController : MonoBehaviour
         {
             this.WarMeter = 0;
         }
+
+        gameState.ToggleWarMeter(true);
     }
 
 
     public void TogglePaused()
-    {       
-        if(this.CurrentScene.Equals(Custom_Scene.MainMenu))
+    {
+        if (this.CurrentScene.Equals(Custom_Scene.MainMenu))
         {
             return;
         }
@@ -115,7 +139,7 @@ public class GameController : MonoBehaviour
     public void IncrementTurn()
     {
         this.turnNumber++;
-        if(this.turnNumber % 2 == 0 && this.Difficulty < 5)
+        if (this.turnNumber % 2 == 0 && this.Difficulty < 5)
         {
             this.Difficulty++;
         }
@@ -127,6 +151,6 @@ public class GameController : MonoBehaviour
         double roll = rand.NextDouble();
         double chance = 0.25 + (0.1 * this.Difficulty);
 
-        return roll <= chance;       
+        return roll <= chance;
     }
 }
