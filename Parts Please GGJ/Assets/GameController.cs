@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     Custom_Scene CurrentScene;
     GameState gameState;
 
+    public CatalogNumbers catalog;
 
     private void Awake()
     {
