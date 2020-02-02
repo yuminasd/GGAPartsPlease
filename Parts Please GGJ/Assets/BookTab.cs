@@ -17,6 +17,5 @@ public class BookTab : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(delegate { parent.onChildClick(desiredPage); });
-        Debug.Log("Started");
     }
 }

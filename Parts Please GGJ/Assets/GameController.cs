@@ -33,17 +33,25 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameState.WarMeterAdjusted)
-        {
-            this.AdjustWarMeter();
-        }
+      
 
         this.ManageSceneControl();
+        this.ManageSceneLogic();
         if (Input.GetKeyDown(KeyCode.Escape) && !this.Paused)
         {
             this.TogglePaused();
         }        
 
+    }
+
+    private void ManageSceneLogic()
+    {
+        if (this.CurrentScene == Custom_Scene.MainGame) { 
+            if (!gameState.WarMeterAdjusted)
+            {
+                this.AdjustWarMeter();
+            }
+        }
     }
 
     public void QuitGame()

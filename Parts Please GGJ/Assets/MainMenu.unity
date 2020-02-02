@@ -1236,6 +1236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983661429}
   - component: {fileID: 1983661428}
+  - component: {fileID: 1983661430}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1256,6 +1257,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Paused: 0
+  WarMeter: 0
+  MaxWarMeter: 10
+  turnNumber: 0
+  Difficulty: 0
 --- !u!4 &1983661429
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,3 +1275,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1983661430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983661427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be503edb0368b8b44a8d3643dd75272d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WarMeterAdjusted: 0
+  currentCustomer: {fileID: 0}
