@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace PartsPlease
 {
+    
+
     public enum Hostility
     {
         Neutral,
@@ -30,8 +32,13 @@ namespace PartsPlease
     public class Customer : MonoBehaviour
     {
 
-        Faction faction { get; set; }
-        Hostility hostility { get; set; }
+        private const int OPFOR = 30;
+        private const int BLUFOR = 60;
+        private const int ESCAL = 30;
+        private const int DESCAL = 60;
+
+        public Faction faction { get; set; }
+        public Hostility hostility { get; set; }
 
 
         public bool FirstCustomer;
@@ -45,15 +52,43 @@ namespace PartsPlease
             this.LastCustomer = false;
         }
 
-        public void Reset()
+        public void GetNewCustomer()
         {
             this.LastCustomer = false;
             this.customerState = CustomerState.Exited;
             this.itemLocation = ItemLocation.Customer;
-            // this.faction = GenerateFaction();
-            // this.hostility = GenerateHostility();
+            this.faction = GenerateFaction();
+            this.hostility = GenerateHostility();
         }
-        
+
+        private Faction GenerateFaction()
+        {
+            int faction = Random.Range(0, 90);
+            if(faction >= 0 && faction <= OPFOR)
+            {
+                return Faction.Opfor;
+            }
+            if (faction > OPFOR && faction <= BLUFOR)
+            {
+                return Faction.Blufor;
+            }
+            return Faction.Neutral;
+        }
+
+        private Hostility GenerateHostility()
+        {
+            int hostility = Random.Range(0, 90);
+            if (hostility >= 0 && hostility <= ESCAL)
+            {
+                return Hostility.Escalate;
+            }
+            if (hostility > ESCAL && hostility <= DESCAL)
+            {
+                return Hostility.Deescalate;
+            }
+            return Hostility.Neutral;
+        }
+
         public void setFirstCustomer(bool state)
         {
             this.FirstCustomer = state;

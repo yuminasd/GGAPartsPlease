@@ -4,29 +4,29 @@ using UnityEngine;
 using PartsPlease;
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
-    public Customer customer;
+    //public Dialogue dialogue;
+    //public Customer customer;
 
 
 
 
-    void Start()
-    {
+    //void Start()
+    //{
       
-        customer = GetComponentInParent<Customer>();
-        dialogue.politicalDialogue(customer.faction, customer.hostility);
-        this.gameObject.SetActive(true);
+    //    customer = GetComponentInParent<Customer>();
+    //    dialogue.politicalDialogue(customer.faction, customer.hostility);
+    //    this.gameObject.SetActive(true);
        
         
-    }
+    //}
 
 
-    public void TriggerDialogue ()
-    {
+    //public void TriggerDialogue ()
+    //{
  
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        this.gameObject.SetActive(false);
+    //    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    //    this.gameObject.SetActive(false);
 
 
-    }
+    //}
 }

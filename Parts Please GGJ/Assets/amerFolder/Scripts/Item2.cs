@@ -33,7 +33,7 @@ namespace PartsPlease
         void Start()
         {
             
-            switch (tier) {
+            switch (this.tier) {
                 case 1:
                     parts = new GameObject[3];
                     partsScripts = new Part[3];

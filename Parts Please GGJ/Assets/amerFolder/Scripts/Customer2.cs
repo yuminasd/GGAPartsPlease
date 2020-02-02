@@ -6,16 +6,7 @@ using UnityEngine.UI;
 namespace PartsPlease
 {
 
-    
-
-    public enum Hostility
-    {
-        Neutral,
-        Deescalate,
-        Escalate
-    }
-
-    public class Customer : MonoBehaviour
+    public class Customer2 : MonoBehaviour
     {
 
        

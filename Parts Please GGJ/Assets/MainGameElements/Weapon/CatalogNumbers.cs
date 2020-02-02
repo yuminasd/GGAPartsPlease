@@ -102,6 +102,5 @@ namespace PartsPlease
         {
             return this.Scopes[model].Equals(serial);
         }
-
     }
 }

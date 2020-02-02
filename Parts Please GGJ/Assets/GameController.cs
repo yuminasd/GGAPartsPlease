@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 {
 
     public bool Paused = false;
+    public int WarMeter;
+    public int MaxWarMeter = 10;
     GameState gameState;
     Custom_Scene CurrentScene;
 
@@ -20,12 +22,17 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+        this.WarMeter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!gameState.WarMeterAdjusted)
+        {
+            this.AdjustWarMeter();
+        }
+
         this.ManageSceneControl();
         if (Input.GetKeyDown(KeyCode.Escape) && !this.Paused)
         {
@@ -60,10 +67,34 @@ public class GameController : MonoBehaviour
                 
             } else if (gameState.currentCustomer.LastCustomer && gameState.currentCustomer.customerState == CustomerState.Exited)
             {
-                SceneLoader.GoToScene(Custom_Scene.Shop);
+                if(this.WarMeter >= 10)
+                {
+                    SceneLoader.GoToScene(Custom_Scene.End_Lose);
+                }
+                else
+                {
+                    SceneLoader.GoToScene(Custom_Scene.Shop);
+                }                
             }
         }
     }
+
+    private void AdjustWarMeter()
+    {
+        if (gameState.currentCustomer.hostility == Hostility.Escalate)
+        {
+            this.WarMeter++;
+        }
+        else if (gameState.currentCustomer.hostility == Hostility.Deescalate)
+        {
+            this.WarMeter--;
+        }
+        if (this.WarMeter < 0)
+        {
+            this.WarMeter = 0;
+        }
+    }
+
 
     public void TogglePaused()
     {       

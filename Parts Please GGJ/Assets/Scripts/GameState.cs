@@ -8,7 +8,7 @@ namespace PartsPlease
 
     public class GameState : MonoBehaviour
     {
-        int ThreatLevel = 0;
+        public bool WarMeterAdjusted = false;
         bool ButtonsDisabled = false;
         Player player;
         public Customer currentCustomer;
@@ -28,6 +28,11 @@ namespace PartsPlease
         public void disableButtons()
         {
             this.ButtonsDisabled = true;
+        }
+
+        public void ToggleWarMeter(bool state)
+        {
+            this.WarMeterAdjusted = state;
         }
     }
 }
