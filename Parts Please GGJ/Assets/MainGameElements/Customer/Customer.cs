@@ -33,12 +33,15 @@ namespace PartsPlease
         Faction faction { get; set; }
         Hostility hostility { get; set; }
 
-        public bool LastCustomer { get; set; }
+
+        public bool FirstCustomer;
+        public bool LastCustomer;
         public CustomerState customerState;
         public ItemLocation itemLocation;
 
         public void Awake()
         {
+            this.FirstCustomer = true;
             this.LastCustomer = false;
         }
 
@@ -49,6 +52,11 @@ namespace PartsPlease
             this.itemLocation = ItemLocation.Customer;
             // this.faction = GenerateFaction();
             // this.hostility = GenerateHostility();
+        }
+        
+        public void setFirstCustomer(bool state)
+        {
+            this.FirstCustomer = state;
         }
 
         public void setLastCustomer(bool state)

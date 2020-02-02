@@ -9,5 +9,6 @@ public class SendInCustomer : MonoBehaviour
     {
         gameState.currentCustomer.GetComponent<Animator>().SetTrigger("EnterShop");
         gameState.currentCustomer.setCustomerState(CustomerState.Entering);
+        gameState.currentCustomer.setFirstCustomer(false);
     }
 }

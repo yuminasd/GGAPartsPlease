@@ -17,10 +17,16 @@ public class CustomerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.HandleAnimationTriggers();
-        this.HandleCustomerState();
+        // If the first customer has already gone through and has exited, send the next so long as we have time.
+        if(gameState.currentCustomer.customerState == CustomerState.Exited && !gameState.currentCustomer.FirstCustomer)
+        {
+            if (!gameState.currentCustomer.LastCustomer)
+            {
+                anim_character.SetTrigger("EnterShop");
+            }
+        }
         // After talking, dialogue should set CustomerState = CustomerState.WaitingForRepair
-        // FORCED: Item is on the bench, they wait for the repair
+        // FORCED: Item is on the bench, they wait for the repair        
         if(gameState.currentCustomer.customerState == CustomerState.Talking && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("STATE: Talking -> Waiting For Repair");
@@ -51,22 +57,11 @@ public class CustomerController : MonoBehaviour
         }
     }
 
-    private void HandleAnimationTriggers()
+    public void SetCustomerExitCondition()
     {
-        //if (gameState.currentCustomer.customerState == CustomerState.Entering)
-        //{
-        //    anim.SetTrigger("EnterShop");
-        //}
-        //if (gameState.currentCustomer.customerState == CustomerState.Talking)
-        //{
-        //    anim.SetTrigger("Talking");
-        //}
+        gameState.currentCustomer.setCustomerState(CustomerState.Exited);
     }
 
-    private void HandleCustomerState()
-    {
-
-    }
 
     public void SetCustomerDialogue()
     {

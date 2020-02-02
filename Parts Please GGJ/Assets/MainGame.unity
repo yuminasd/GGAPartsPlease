@@ -2031,7 +2031,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6f574476f7ec04cb4f45fa01509be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1213236702}
+  anim_character: {fileID: 1213236702}
+  anim_weapon: {fileID: 2059518803}
   gameState: {fileID: 663655838}
 --- !u!95 &1213236702
 Animator:
@@ -2064,6 +2065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4cd9022c35c9742984a9d5327d45ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstCustomer: 0
+  LastCustomer: 0
   customerState: 2
   itemLocation: 1
 --- !u!1 &1254195634
