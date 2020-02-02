@@ -38,6 +38,7 @@ namespace PartsPlease
         public void onChildClick(Page desiredPage)
         {
             Debug.Log("desiring page" + desiredPage);
+            schematicsBook.SetActive(false);
             schematicsBookOpen.SetActive(true);
             modelsPage.SetActive(false);
             lightsPage.SetActive(false);
@@ -48,6 +49,7 @@ namespace PartsPlease
                 
                 case Page.Cover:
                     schematicsBookOpen.SetActive(false);
+                    schematicsBook.SetActive(true);
                     break;
                 case Page.Models:
                     modelsPage.SetActive(true);
