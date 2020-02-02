@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         this.WarMeter = 0;
         this.turnNumber = 0;
-        this.Difficulty = 0;
+        this.Difficulty = 1;
     }
 
     // Update is called once per frame
@@ -114,9 +115,18 @@ public class GameController : MonoBehaviour
     public void IncrementTurn()
     {
         this.turnNumber++;
-        if(this.turnNumber % 2 == 0 && this.Difficulty < 4)
+        if(this.turnNumber % 2 == 0 && this.Difficulty < 5)
         {
             this.Difficulty++;
         }
+    }
+
+    public bool DetermineIfPartIsBroken()
+    {
+        System.Random rand = new System.Random();
+        double roll = rand.NextDouble();
+        double chance = 0.25 + (0.1 * this.Difficulty);
+
+        return roll <= chance;       
     }
 }

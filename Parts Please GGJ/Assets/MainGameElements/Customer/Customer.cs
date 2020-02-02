@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace PartsPlease
 {
-    
 
     public enum Hostility
     {
@@ -47,6 +46,7 @@ namespace PartsPlease
         public ItemLocation itemLocation;
         public GunType gunType;
         public CatalogNumbers catalog;
+        public PartType[] DesiredParts = new PartType[4];
 
         public void Awake()
         {
@@ -62,6 +62,7 @@ namespace PartsPlease
             this.faction = GenerateFaction();
             this.hostility = GenerateHostility();
             this.gunType = catalog.chooseRandomGunType();
+            this.populateWeaponPartsArray();
         }
 
         private Faction GenerateFaction()
@@ -90,6 +91,24 @@ namespace PartsPlease
                 return Hostility.Deescalate;
             }
             return Hostility.Neutral;
+        }
+
+        public void populateWeaponPartsArray()
+        {
+            for(int x = 0; x < 4; x++)
+            {
+                PartType curPart = this.getRandomPart();
+                this.DesiredParts[x] = curPart;
+            }
+        }
+
+        private PartType getRandomPart()
+        {
+            int type = Random.Range(0, 4);
+            if (type == 0) return PartType.Bulb;
+            if (type == 1) return PartType.Gear;
+            return PartType.Scope;
+            
         }
 
         public void setFirstCustomer(bool state)

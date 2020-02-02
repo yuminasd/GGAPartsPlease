@@ -14,9 +14,9 @@ namespace PartsPlease
 
     public enum PartType
     {
-        LightBulb,
-        Pipe,
-        Hose,
+        Bulb,
+        Gear,
+        Scope,
     }
 
 

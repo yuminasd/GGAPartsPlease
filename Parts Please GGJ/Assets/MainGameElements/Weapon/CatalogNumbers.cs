@@ -43,6 +43,21 @@ namespace PartsPlease
             Guns.Add(GunType.GUNGUN, "GG4BB");
         }
 
+        public string getSerialNumber(GunType gunType, PartType partType)
+        {
+            switch (partType)
+            {
+                case PartType.Bulb:
+                    return getBulbForModel(gunType);
+                case PartType.Gear:
+                    return getGearForModel(gunType);
+                case PartType.Scope:
+                    return getScopeForModel(gunType);
+                default:
+                    return null;
+            }
+        }
+
         private void populateBulbs()
         {
             Bulbs.Add("698YD", "1425A");
