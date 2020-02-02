@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class WeaponLocationFollow : MonoBehaviour
 {
-    Transform WeaponCarryPosition;
+    public Transform CustomerPosition;
+    Vector3 WeaponCarryOffset;
+
+    float wX = 0.0f;
+    float wY = 0.0f;
+    float wZ = 0.0f;
+
     bool RepairLock;
     // Start is called before the first frame update
     void Start()
     {
+        WeaponCarryOffset = new Vector3(wX, wY, wZ);
+        this.transform.position = CustomerPosition.position + WeaponCarryOffset;
         this.RepairLock = true;
     }
 
@@ -20,7 +28,7 @@ public class WeaponLocationFollow : MonoBehaviour
 
     private void SetCarryPosition()
     {
-        this.transform.position = WeaponCarryPosition.position;
+        this.transform.position = CustomerPosition.position + WeaponCarryOffset;
     }
     public void SetRepairLock(bool state)
     {

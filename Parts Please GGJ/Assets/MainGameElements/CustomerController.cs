@@ -5,7 +5,8 @@ using PartsPlease;
 
 public class CustomerController : MonoBehaviour
 {
-    public Animator anim;
+    public Animator anim_character;
+    public Animator anim_weapon;
     public GameState gameState;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class CustomerController : MonoBehaviour
         if(gameState.currentCustomer.customerState == CustomerState.Talking && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("STATE: Talking -> Waiting For Repair");
+            anim_weapon.SetTrigger("DropWeapon");
             gameState.currentCustomer.setItemLocation(ItemLocation.Bench);
             gameState.currentCustomer.setCustomerState(CustomerState.WaitingForRepair);            
         }
@@ -32,6 +34,7 @@ public class CustomerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("STATE: waiting for repair -> Farewell, pick up item");
+                anim_weapon.SetTrigger("PickupWeapon");
                 gameState.currentCustomer.setCustomerState(CustomerState.Farewell);
                 gameState.currentCustomer.setItemLocation(ItemLocation.Customer);
             }
@@ -42,7 +45,7 @@ public class CustomerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("STATE: Farewell => Exit");
-                anim.SetTrigger("ExitShop");
+                anim_character.SetTrigger("ExitShop");
                 gameState.currentCustomer.setCustomerState(CustomerState.Exiting);
             }
         }
@@ -67,7 +70,7 @@ public class CustomerController : MonoBehaviour
 
     public void SetCustomerDialogue()
     {
-        anim.SetTrigger("Talking");
+        anim_character.SetTrigger("Talking");
         gameState.currentCustomer.setCustomerState(CustomerState.Talking);
     }
 
