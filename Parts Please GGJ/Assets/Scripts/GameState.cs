@@ -22,6 +22,7 @@ namespace PartsPlease
         {
             world = new World();
             player = new Player();
+            //player
             currentCustomer = new Customer();
             currentItem = new Item();
         }
