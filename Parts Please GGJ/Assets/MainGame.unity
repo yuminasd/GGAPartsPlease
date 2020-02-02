@@ -2643,6 +2643,8 @@ MonoBehaviour:
   LastCustomer: 0
   customerState: 2
   itemLocation: 1
+  gunType: 0
+  catalog: {fileID: 663655839}
 --- !u!114 &1213236704
 MonoBehaviour:
   m_ObjectHideFlags: 0

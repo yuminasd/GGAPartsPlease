@@ -8,8 +8,9 @@ public class WeaponPart : MonoBehaviour
     public bool isBroken;
     private string serialNumber;
 
-    private void OnEnable()
+    
+    public string GetSerialNumber()
     {
-        
+        return this.serialNumber;
     }
 }
