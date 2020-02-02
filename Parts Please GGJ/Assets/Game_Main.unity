@@ -1448,22 +1448,22 @@ PrefabInstance:
     - target: {fileID: 391794690013794415, guid: d29ae79e02b617b40902e52c9d07cae2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 161
+      value: 177.55
       objectReference: {fileID: 0}
     - target: {fileID: 391794690013794415, guid: d29ae79e02b617b40902e52c9d07cae2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -102
+      value: -142.27
       objectReference: {fileID: 0}
     - target: {fileID: 391794690013794415, guid: d29ae79e02b617b40902e52c9d07cae2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 256.61
+      value: 312.4
       objectReference: {fileID: 0}
     - target: {fileID: 391794690013794415, guid: d29ae79e02b617b40902e52c9d07cae2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 95.07
+      value: 115.73
       objectReference: {fileID: 0}
     - target: {fileID: 391794690013794415, guid: d29ae79e02b617b40902e52c9d07cae2,
         type: 3}
@@ -2865,8 +2865,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: OPEN SHOP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0fcd670e9c65a0648bcb7871300e2086, type: 2}
+  m_sharedMaterial: {fileID: -4313467686861703467, guid: 0fcd670e9c65a0648bcb7871300e2086,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2891,7 +2892,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25.05
+  m_fontSize: 28
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3619,7 +3620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchoredPosition: {x: 0, y: -184}
   m_SizeDelta: {x: 184.98999, y: 49.599976}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1696689851
