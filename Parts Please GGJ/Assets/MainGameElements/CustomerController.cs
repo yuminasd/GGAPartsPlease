@@ -9,6 +9,7 @@ public class CustomerController : MonoBehaviour
     public Animator anim_weapon;
     public GameState gameState;
     public WeaponController weaponController;
+    bool hasNewGun = false;
    
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,11 @@ public class CustomerController : MonoBehaviour
         {
             if (!gameState.currentCustomer.LastCustomer)
             {
-                weaponController.getNewGun();
+                if (!hasNewGun)
+                {
+                    weaponController.getNewGun();
+                    hasNewGun = true;
+                }                
                 //this.GetComponent<GetBaseWeaponSkin>().SetWeaponSkin(gameState.currentCustomer.gunType);
                 anim_character.SetTrigger("EnterShop");
             }
@@ -57,6 +62,11 @@ public class CustomerController : MonoBehaviour
                 Debug.Log("STATE: Farewell => Exit");
                 anim_character.SetTrigger("ExitShop");
                 gameState.currentCustomer.setCustomerState(CustomerState.Exiting);
+                if (hasNewGun)
+                {
+                    hasNewGun = false;
+                }
+                
             }
         }
     }
