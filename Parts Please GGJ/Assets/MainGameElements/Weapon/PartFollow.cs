@@ -44,5 +44,6 @@ public class PartFollow : MonoBehaviour
         Debug.Log(other);
         //Debug.Log(other.GetType());
         this.parentPosition = other;
+        this.transform.rotation = other.rotation;
     }
 }
