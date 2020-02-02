@@ -116,7 +116,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8617697980058307679}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 647457202836267188}
+        m_MethodName: clickpart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3418898007278416230
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +139,7 @@ GameObject:
   - component: {fileID: 4442142615462611365}
   - component: {fileID: 8364553987571555535}
   - component: {fileID: 8084034770847251566}
+  - component: {fileID: 647457202836267188}
   m_Layer: 5
   m_Name: Scope_Prefab
   m_TagString: Untagged
@@ -191,3 +203,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &647457202836267188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3418898007278416230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 0}
+  weaponController: {fileID: 0}
+  slot: 0

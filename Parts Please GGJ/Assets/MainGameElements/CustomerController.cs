@@ -14,12 +14,16 @@ public class CustomerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameState.currentCustomer.FirstCustomer)
+        {
+            weaponController.getNewGun();
+            this.hasNewGun = true;
+        }
         // If the first customer has already gone through and has exited, send the next so long as we have time.
         if(gameState.currentCustomer.customerState == CustomerState.Exited && !gameState.currentCustomer.FirstCustomer)
         {

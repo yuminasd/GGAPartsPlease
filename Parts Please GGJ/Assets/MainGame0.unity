@@ -121,6 +121,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &34589464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 739873938073901531, guid: db7126076cfe2704aa3e5af04d2d16a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 55601346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &38827924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 739873938073901531, guid: db7126076cfe2704aa3e5af04d2d16a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1547670751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &39351459 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4442142615462611365, guid: 714f545eb8a03e04abcef466f4c3b2f5,
@@ -379,6 +403,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulb_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 6529720938659979610, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7126076cfe2704aa3e5af04d2d16a3, type: 3}
 --- !u!1001 &70645109
@@ -492,6 +531,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: slot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5989210939699279097, guid: 64a92883e7f43424a9e46ae2acee1976,
         type: 3}
@@ -842,6 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 191265640}
   - component: {fileID: 191265641}
+  - component: {fileID: 191265642}
   m_Layer: 0
   m_Name: Gear2
   m_TagString: Untagged
@@ -879,6 +934,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &191265642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191265639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 1
 --- !u!1 &202396724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1110,8 @@ GameObject:
   m_Component:
   - component: {fileID: 259866624}
   - component: {fileID: 259866625}
+  - component: {fileID: 259866626}
+  - component: {fileID: 259866627}
   m_Layer: 0
   m_Name: Bulb1
   m_TagString: Untagged
@@ -1077,6 +1149,75 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &259866626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259866623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.56078434, a: 0.22352941}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 34589464}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 259866627}
+        m_MethodName: clickpart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &259866627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259866623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 0
 --- !u!1 &274646082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1425,6 +1566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 337840742}
   - component: {fileID: 337840743}
+  - component: {fileID: 337840744}
   m_Layer: 0
   m_Name: Scope1
   m_TagString: Untagged
@@ -1462,6 +1604,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &337840744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337840741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 0
 --- !u!1 &396812013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,6 +1910,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulb_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: slot
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7126076cfe2704aa3e5af04d2d16a3, type: 3}
 --- !u!1 &503967020
@@ -1765,6 +1937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503967021}
   - component: {fileID: 503967022}
+  - component: {fileID: 503967023}
   m_Layer: 0
   m_Name: Gear1
   m_TagString: Untagged
@@ -1802,6 +1975,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &503967023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503967020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 0
 --- !u!1001 &516580049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,6 +2102,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: slot
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5989210939699279097, guid: 64a92883e7f43424a9e46ae2acee1976,
         type: 3}
       propertyPath: m_Name
@@ -1921,6 +2124,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a92883e7f43424a9e46ae2acee1976, type: 3}
+--- !u!114 &540047549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2418413045469570536, guid: a642bf926c7bfe74fa899dfe05f255fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1736059922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7516e61641ee8d943a738b03cf612e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &545033449 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2418413045469570535, guid: a642bf926c7bfe74fa899dfe05f255fb,
@@ -2437,6 +2652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 688297038}
   - component: {fileID: 688297039}
+  - component: {fileID: 688297040}
   m_Layer: 0
   m_Name: Scope4
   m_TagString: Untagged
@@ -2474,6 +2690,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &688297040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688297037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 3
 --- !u!1 &738710668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +2889,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
     - target: {fileID: 5989210939699279097, guid: 64a92883e7f43424a9e46ae2acee1976,
         type: 3}
       propertyPath: m_Name
@@ -2675,6 +2916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805096565}
   - component: {fileID: 805096566}
+  - component: {fileID: 805096567}
   m_Layer: 0
   m_Name: Gear4
   m_TagString: Untagged
@@ -2712,6 +2954,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &805096567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805096564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 3
 --- !u!1 &815878061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,6 +3028,8 @@ GameObject:
   m_Component:
   - component: {fileID: 891669774}
   - component: {fileID: 891669775}
+  - component: {fileID: 891669776}
+  - component: {fileID: 891669777}
   m_Layer: 0
   m_Name: Bulb2
   m_TagString: Untagged
@@ -2808,6 +3067,75 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &891669776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891669773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.56078434, a: 0.22352941}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 38827924}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 891669777}
+        m_MethodName: clickpart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &891669777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891669773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 1
 --- !u!1 &921240575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3631,6 +3959,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 337840742}
     m_Modifications:
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
     - target: {fileID: 3418898007278416230, guid: 714f545eb8a03e04abcef466f4c3b2f5,
         type: 3}
       propertyPath: m_Name
@@ -3993,6 +4331,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1409257194}
     m_Modifications:
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: slot
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3418898007278416230, guid: 714f545eb8a03e04abcef466f4c3b2f5,
         type: 3}
       propertyPath: m_Name
@@ -4105,6 +4458,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714f545eb8a03e04abcef466f4c3b2f5, type: 3}
+--- !u!114 &1202059279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 739873938073901531, guid: db7126076cfe2704aa3e5af04d2d16a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1495305301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1205825364
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,6 +4480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205825365}
   - component: {fileID: 1205825366}
+  - component: {fileID: 1205825367}
   m_Layer: 0
   m_Name: Scope2
   m_TagString: Untagged
@@ -4152,6 +4518,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &1205825367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205825364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 1
 --- !u!1001 &1206525845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4159,6 +4540,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1205825365}
     m_Modifications:
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: slot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3418898007278416230, guid: 714f545eb8a03e04abcef466f4c3b2f5,
         type: 3}
       propertyPath: m_Name
@@ -4391,6 +4787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220680700}
   - component: {fileID: 1220680701}
+  - component: {fileID: 1220680702}
   m_Layer: 0
   m_Name: Gear3
   m_TagString: Untagged
@@ -4428,6 +4825,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &1220680702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220680699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 2
 --- !u!1 &1254195634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,6 +5085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409257194}
   - component: {fileID: 1409257195}
+  - component: {fileID: 1409257196}
   m_Layer: 0
   m_Name: Scope3
   m_TagString: Untagged
@@ -4710,6 +5123,21 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &1409257196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409257193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 2
 --- !u!1 &1443885177
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,6 +5490,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulb_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: slot
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 6529720938659979610, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7126076cfe2704aa3e5af04d2d16a3, type: 3}
 --- !u!1001 &1547670751
@@ -5071,6 +5519,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 891669774}
     m_Modifications:
+    - target: {fileID: 40703831133128248, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 580664090192171224, guid: db7126076cfe2704aa3e5af04d2d16a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5180,6 +5633,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bulb_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 6229765552662942430, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: slot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529720938659979610, guid: db7126076cfe2704aa3e5af04d2d16a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7126076cfe2704aa3e5af04d2d16a3, type: 3}
@@ -5627,12 +6100,12 @@ PrefabInstance:
     - target: {fileID: 2418413045469570535, guid: a642bf926c7bfe74fa899dfe05f255fb,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 453.3
       objectReference: {fileID: 0}
     - target: {fileID: 2418413045469570535, guid: a642bf926c7bfe74fa899dfe05f255fb,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 453.3
       objectReference: {fileID: 0}
     - target: {fileID: 2418413045469570535, guid: a642bf926c7bfe74fa899dfe05f255fb,
         type: 3}
@@ -5819,6 +6292,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1842416872}
   - component: {fileID: 1842416873}
+  - component: {fileID: 1842416874}
+  - component: {fileID: 1842416875}
   m_Layer: 0
   m_Name: Bulb4
   m_TagString: Untagged
@@ -5856,6 +6331,75 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &1842416874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842416871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.56078434, a: 0.22352941}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1968694080}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1842416875}
+        m_MethodName: clickpart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1842416875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842416871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 3
 --- !u!1 &1948725187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,6 +6579,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953822232}
   m_CullTransparentMesh: 0
+--- !u!114 &1968694080 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 739873938073901531, guid: db7126076cfe2704aa3e5af04d2d16a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 497345935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1971563837 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 580664090192171224, guid: db7126076cfe2704aa3e5af04d2d16a3,
@@ -6051,6 +6607,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1977745214}
   - component: {fileID: 1977745215}
+  - component: {fileID: 1977745216}
+  - component: {fileID: 1977745217}
   m_Layer: 0
   m_Name: Bulb3
   m_TagString: Untagged
@@ -6088,6 +6646,75 @@ MonoBehaviour:
   defaultPosition: {x: 0, y: 0, z: 0}
   parentPosition: {fileID: 0}
   transform: {fileID: 0}
+--- !u!114 &1977745216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977745213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.56078434, a: 0.22352941}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1202059279}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1977745217}
+        m_MethodName: clickpart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1977745217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977745213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c50986744c10824eb00543d1355e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partPromptController: {fileID: 540047549}
+  weaponController: {fileID: 1948725190}
+  slot: 2
 --- !u!1 &1993714218
 GameObject:
   m_ObjectHideFlags: 0
@@ -6130,6 +6757,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 688297038}
     m_Modifications:
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 647457202836267188, guid: 714f545eb8a03e04abcef466f4c3b2f5,
+        type: 3}
+      propertyPath: slot
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3418898007278416230, guid: 714f545eb8a03e04abcef466f4c3b2f5,
         type: 3}
       propertyPath: m_Name
@@ -6452,6 +7094,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1948725190}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: partPromptController
+      value: 
+      objectReference: {fileID: 540047549}
+    - target: {fileID: 2677689704563754491, guid: 64a92883e7f43424a9e46ae2acee1976,
+        type: 3}
+      propertyPath: slot
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5989210939699279097, guid: 64a92883e7f43424a9e46ae2acee1976,
         type: 3}

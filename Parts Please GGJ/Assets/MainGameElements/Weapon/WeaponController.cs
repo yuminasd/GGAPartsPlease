@@ -26,6 +26,8 @@ public class WeaponController : MonoBehaviour
     public GameObject[] GearSpritePool = new GameObject[4];
     public GameObject[] ScopeSpritePool = new GameObject[4];
 
+
+
     // Start is called before the first frame update
     void Start()
     {
