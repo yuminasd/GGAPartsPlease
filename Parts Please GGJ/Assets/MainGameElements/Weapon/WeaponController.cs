@@ -213,4 +213,9 @@ public class WeaponController : MonoBehaviour
         this.ErrorMessage.Add(
             string.Format("Item in slot {0} had serial: {1}. Expected: {2}", index, serialnum, this.expectedParts[index].serialNumber));
     }
+
+    public void replaceWeaponPart(WeaponPart newPart)
+    {
+        this.currentParts[newPart.index] = newPart;
+    }
 }
