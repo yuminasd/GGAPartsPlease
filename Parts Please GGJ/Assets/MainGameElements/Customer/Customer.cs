@@ -45,6 +45,8 @@ namespace PartsPlease
         public bool LastCustomer;
         public CustomerState customerState;
         public ItemLocation itemLocation;
+        public GunType gunType;
+        public CatalogNumbers catalog;
 
         public void Awake()
         {
@@ -59,6 +61,7 @@ namespace PartsPlease
             this.itemLocation = ItemLocation.Customer;
             this.faction = GenerateFaction();
             this.hostility = GenerateHostility();
+            this.gunType = catalog.chooseRandomGunType();
         }
 
         private Faction GenerateFaction()

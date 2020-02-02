@@ -8,6 +8,7 @@ public class CustomerController : MonoBehaviour
     public Animator anim_character;
     public Animator anim_weapon;
     public GameState gameState;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class CustomerController : MonoBehaviour
         {
             if (!gameState.currentCustomer.LastCustomer)
             {
+                this.GetComponent<GetBaseWeaponSkin>().SetWeaponSkin(gameState.currentCustomer.gunType);
                 anim_character.SetTrigger("EnterShop");
             }
         }

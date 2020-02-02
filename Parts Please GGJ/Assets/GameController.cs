@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     public bool Paused = false;
     public int WarMeter;
     public int MaxWarMeter = 10;
+    public int turnNumber;
+    public int Difficulty;
     GameState gameState;
     Custom_Scene CurrentScene;
 
@@ -23,6 +25,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         this.WarMeter = 0;
+        this.turnNumber = 0;
+        this.Difficulty = 0;
     }
 
     // Update is called once per frame
@@ -105,5 +109,14 @@ public class GameController : MonoBehaviour
 
         this.Paused = !this.Paused;
         Debug.Log("PAUSED: " + this.Paused);
+    }
+
+    public void IncrementTurn()
+    {
+        this.turnNumber++;
+        if(this.turnNumber % 2 == 0 && this.Difficulty < 4)
+        {
+            this.Difficulty++;
+        }
     }
 }

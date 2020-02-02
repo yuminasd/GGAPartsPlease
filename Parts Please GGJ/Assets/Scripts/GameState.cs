@@ -9,7 +9,7 @@ namespace PartsPlease
     public class GameState : MonoBehaviour
     {
         public bool WarMeterAdjusted = false;
-        bool ButtonsDisabled = false;
+        bool ButtonsDisabled = false;        
         Player player;
         public Customer currentCustomer;
         Item currentItem;
