@@ -26,6 +26,8 @@ public class WeaponController : MonoBehaviour
     public GameObject[] GearSpritePool = new GameObject[4];
     public GameObject[] ScopeSpritePool = new GameObject[4];
 
+    // Active Part for Replacement
+    public WeaponPart activePart;
 
 
     // Start is called before the first frame update
@@ -45,17 +47,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log(expectedParts[0].serialNumber);
-            Debug.Log(currentParts[0].serialNumber);
-            Debug.Log(expectedParts[1].serialNumber);
-            Debug.Log(currentParts[1].serialNumber);
-            Debug.Log(expectedParts[2].serialNumber);
-            Debug.Log(currentParts[2].serialNumber);
-            Debug.Log(expectedParts[3].serialNumber);
-            Debug.Log(currentParts[3].serialNumber);
-        }
+
     }
 
     public void populatePartMap()
@@ -219,5 +211,10 @@ public class WeaponController : MonoBehaviour
     public void replaceWeaponPart(WeaponPart newPart)
     {
         this.currentParts[newPart.index] = newPart;
+    }
+
+    public void clearActivePart()
+    {
+        this.activePart = null;
     }
 }

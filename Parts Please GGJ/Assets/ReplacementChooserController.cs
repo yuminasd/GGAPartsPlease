@@ -12,6 +12,8 @@ namespace PartsPlease
         public GameObject chooseArrowHint;
         public GameObject serialBook;
         public GameObject bulbSerialPage, gearSerialPage, scopeSerialPage;
+
+        public WeaponController weaponController;
         //public GameObject 
         // Start is called before the first frame update
         void Start()
@@ -69,7 +71,15 @@ namespace PartsPlease
 
         public void onSerialClick(string serial)
         {
-            Debug.Log("Got serial click for serial no: " + serial);
+            Debug.Log("Replace with: " + serial);
+            WeaponPart part = weaponController.activePart;
+            Debug.Log("CURRENT: " + part.serialNumber);
+            part.serialNumber = serial;
+            part.isBroken = false;;
+            Debug.Log("After Fix: " + part.serialNumber);
+            weaponController.currentParts[part.index] = part;
+            weaponController.activePart = null;
+            this.resetReplacementChooser();
         }
     }
 

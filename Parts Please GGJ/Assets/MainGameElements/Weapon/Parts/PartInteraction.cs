@@ -13,6 +13,7 @@ public class PartInteraction : MonoBehaviour
     {
         Debug.Log("Clicked: " + slot);
         WeaponPart part = this.weaponController.currentParts[this.slot];
+        weaponController.activePart = part;
         this.partPromptController.showPrompt(part);
     }
 
